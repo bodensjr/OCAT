@@ -1,10 +1,11 @@
 import React from 'react';
 import { AssessmentService } from '../shared/services/assessment.service';
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 export function AssessmentNew(){
 
     //create a form that utilizes the "onSubmit" function to send data to OCAT/client/libs and onto the OCAT/server/routes express API
+    const { register, handleSubmit } = useForm(data);
     const onSubmit = async (data) => {
         await AssessmentService.submit(data);
     };
