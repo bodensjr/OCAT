@@ -1,6 +1,6 @@
 import React from 'react';
 import { AssessmentService } from '../shared/services/assessment.service';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 export function AssessmentNew(){
 
