@@ -7,7 +7,7 @@ export function AssessmentNew(){
   const createAssessmentObject = (data)=>{
     const assessment ={
       instrument: data.instruments, 
-      Name : data.catName,
+      Name : data.Name,
       DateOfBirth : data.DateOfBirth,
     }
     assessment.score = calculateScore(data)
