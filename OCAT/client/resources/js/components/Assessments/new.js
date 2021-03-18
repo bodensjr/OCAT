@@ -9,12 +9,12 @@ export function AssessmentNew(){
       Name : data.Name,
       DateOfBirth : data.DateOfBirth,
     }
-    assessment.score = calculateScore(data)
-    assessment.riskLevel = calculateRiskLevel(assessment.score)
+    assessment.score = FindScore(data)
+    assessment.riskLevel = FindRiskLevel(assessment.score)
     return assessment;
   }
 
-  const calculateScore = (data)=>{
+  const FindScore = (data)=>{
     let score = 0;
     score += +data.answer1;
     score += +data.answer2;
@@ -24,7 +24,7 @@ export function AssessmentNew(){
     return score;
   }
 
-  const calculateRiskLevel = (score)=>{
+  const FindRiskLevel = (score)=>{
     let riskLevel = 'low';
     if(score > 1) riskLevel = 'medium';
     if(score > 3) riskLevel = 'high';
@@ -41,45 +41,45 @@ export function AssessmentNew(){
   return (
           <form onSubmit={handleSubmit(onSubmit)}>
            <h1>Cat Name</h1>
-            <input className="form-control form-control-sm" type="text" name="Name" id="Name-id" autoFocus ref={register({required: true})} />
+            <input className="form-control form-control-sm" type="text" name="Name" id="NameId" autoFocus ref={register({required: true})} />
                 <h1>Cat Date of Birth</h1>
-                <input className="form-control form-control-sm" type="date"  name="DateOfBirth" id="DateOfBirth-id" ref={register({ required: true })} />
+                <input className="form-control form-control-sm" type="date"  name="DateOfBirth" id="DateId" ref={register({ required: true })} />
                 <h1>Instrument</h1>
-                  <h2>Cat Behavioral Instrument</h2>
+                  <label>Cat Behavioral Instrument</label>
                 </select>
               {errors.Name, errors.DateOfBirth  && <p>Required</p>}
 
                 <h1>1. Previous contact with the Cat Judicial System:</h1>
-                  <input className="form-check-input" type="radio" id="answer1-no" name="answer1" value="0" ref={register({ required: true })}/>
+                  <input className="form-check-input" type="radio" id="answer1no" name="answer1" value="0" ref={register({ required: true })}/>
                   <label className="form-check-label" htmlFor="answer1-no">No</label>
-                  <input className="form-check-input" type="radio" id="answer1-yes" name="answer1" value="1" ref={register({ required: true })}/>
-                  <label className="form-check-label" htmlFor="answer1-yes">Yes</label>
+                  <input className="form-check-input" type="radio" id="answer1yes" name="answer1" value="1" ref={register({ required: true })}/>
+                  <label className="form-check-label" htmlFor="answer1yes">Yes</label>
               {errors.answer1 && <p>Required</p>}
                                                                                                                       
                 <h1>2. Physical altercations with other cats:</h1>
-                  <input className="form-check-input" type="radio" id="answer2-0" name="answer2" value="0" ref={register({ required: true })}/>
+                  <input className="form-check-input" type="radio" id="answer20" name="answer2" value="0" ref={register({ required: true })}/>
                   <label className="form-check-label" htmlFor="answer2-0">0-3 altercations</label>
-                  <input className="form-check-input" type="radio" id="answer2-3" name="answer2" value="1" ref={register({ required: true })}/>
-                  <label className="form-check-label" htmlFor="answer2-3">3+ altercations</label>
+                  <input className="form-check-input" type="radio" id="answer23" name="answer2" value="1" ref={register({ required: true })}/>
+                  <label className="form-check-label" htmlFor="answer23">3+ altercations</label>
               {errors.answer2 && <p>Required</p>}
 
                 <h1>3. Physical altercations with owner (scratching, biting, etc...):</h1>
-                  <input className="form-check-input" type="radio" id="answer3-10" name="answer3" value="1" ref={register({ required: true })}/>
-                  <label className="form-check-label" htmlFor="answer3-10">10+ altercations</label>      
-                  <input className="form-check-input" type="radio" id="answer3-0" name="answer3" value="0" ref={register({ required: true })}/>
-                  <label className="form-check-label" htmlFor="answer3-0">0-10 altercations </label>
+                  <input className="form-check-input" type="radio" id="answer310" name="answer3" value="1" ref={register({ required: true })}/>
+                  <label className="form-check-label" htmlFor="answer310">10+ altercations</label>      
+                  <input className="form-check-input" type="radio" id="answer30" name="answer3" value="0" ref={register({ required: true })}/>
+                  <label className="form-check-label" htmlFor="answer30">0-10 altercations </label>
               {errors.answer3 && <p>Required</p>}
                 <h1>4. Plays well with dogs:</h1>
-                  <input className="form-check-input" type="radio" id="answer4-no" name="answer4" value="1" ref={register({ required: true })}/>
-                  <label className="form-check-label mr-30" htmlFor="answer4-no">No</label>
-                  <input className="form-check-input" type="radio" id="answer4-yes" name="answer4" value="0" ref={register({ required: true })}/>
-                  <label className="form-check-label" htmlFor="answer4-yes">Yes</label>
+                  <input className="form-check-input" type="radio" id="answer4no" name="answer4" value="1" ref={register({ required: true })}/>
+                  <label className="form-check-label mr-30" htmlFor="answer4no">No</label>
+                  <input className="form-check-input" type="radio" id="answer4yes" name="answer4" value="0" ref={register({ required: true })}/>
+                  <label className="form-check-label" htmlFor="answer4yes">Yes</label>
                   {errors.answer4 && <p>Required</p>}
                 <h1>5. Hisses at strangers:</h1>
-                  <input className="form-check-input" type="radio" id="answer5-yes" name="answer5" value="1" ref={register({ required: true })}/>
-                  <label className="form-check-label mr-30" htmlFor="answer5-yes">Yes</label>
-                  <input className="form-check-input" type="radio" id="answer5-no" name="answer5" value="0" ref={register({ required: true })}/>
-                  <label className="form-check-label" htmlFor="answer5-No">No</label>
+                  <input className="form-check-input" type="radio" id="answer5yes" name="answer5" value="1" ref={register({ required: true })}/>
+                  <label className="form-check-label mr-30" htmlFor="answer5yes">Yes</label>
+                  <input className="form-check-input" type="radio" id="answer5no" name="answer5" value="0" ref={register({ required: true })}/>
+                  <label className="form-check-label" htmlFor="answer5no">No</label>
                 {errors.answer5 && <p>Required</p>}
                 <input type="submit"/>     
 
