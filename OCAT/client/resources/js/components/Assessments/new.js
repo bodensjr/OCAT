@@ -7,8 +7,9 @@ export function AssessmentNew(){
   const createAssessmentObject = (data)=>{
     const assessment ={
       Name : data.Name,
-      DateOfBirth : data.DateOfBirth,
+      DateOfBirth : data.DateOfBirth
     }
+    assessment.instrument = "Cat Behavioral Instrument"
     assessment.score = FindScore(data)
     assessment.riskLevel = FindRiskLevel(assessment.score)
     return assessment;
