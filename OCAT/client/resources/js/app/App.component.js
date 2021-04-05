@@ -9,7 +9,7 @@ export function App() {
       <BrowserRouter>
         <Route path="/" component={DashboardBulletin} />
         <Route path="/assessment/new" component={AssessmentNew} />
-        {/* <Route path="/assessment/list" component={AssessmentList} /> */}
+        <Route path="/assessment/list" component={AssessmentList} />
       </BrowserRouter>
   </>;
 }
