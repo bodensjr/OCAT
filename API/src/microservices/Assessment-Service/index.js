@@ -29,3 +29,17 @@ exports.submit = (assessment) => {
     }
   });
 };
+
+exports.retrieve = (assessment) => {
+  return new Promise(async (resolve, reject) => { //eslint-disable-line
+    try {
+      let List = await new Assessments().fetchAll().catch(function (e) {
+         resolve(List.toJSON());
+});
+         resolve(List.toJSON());
+
+   } catch (err) {
+      reject();
+   }
+  });
+};
